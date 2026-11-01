@@ -1,0 +1,147 @@
+# PokeSurvivor Bot
+
+[Tiếng Việt](README.md) · **English**
+
+Auto-play bot for [pokesurvivor.com](https://pokesurvivor.com/) and [pokesurvivor.doofcraft.com](https://pokesurvivor.doofcraft.com/) (detects the game version from the site). Paid, cheap ([how to buy](#buy-an-activation-code)) · by [damhieu2808](https://github.com/damhieu2808)
+
+## Install on PC (Chrome)
+
+1. [**Download the bot (ZIP)**](https://github.com/damhieu2808/PokeSurvivorTool/archive/refs/heads/main.zip). This link always gets the latest version.
+2. Unzip it, open `chrome://extensions` and turn on **Developer mode**.
+3. Click **Load unpacked** and pick the unzipped folder.
+
+## Install on a phone (Android)
+
+> ℹ️ The whole bot is inside the userscript file. The userscript manager runs that code in the page itself, so pokesurvivor.com blocking scripts added to the page (CSP) no longer matters. **Firefox** is recommended. Edge / Kiwi + Tampermonkey on Android did not work with the old version; the new way is not tested there yet.
+
+1. Install **Firefox** (Play Store).
+2. In Firefox, install the **Violentmonkey** or **Tampermonkey** add-on (menu ⋮ → Add-ons).
+3. Tap the copy button on the block below, paste into that browser's **address bar** and open it:
+
+```
+https://raw.githubusercontent.com/damhieu2808/PokeSurvivorTool/v2.2.1/psbot.user.js
+```
+
+4. The manager opens its install page → tap **Install**. If an older version is installed, install over it.
+5. Open the game: the **PokeSurvivor Bot** panel appears in the top-left corner.
+
+The manager checks for new versions on its own from time to time. To update right away: open the manager → **Check for updates**, or open the link from step 3 again.
+
+## Install on iPhone / iPad
+
+1. Install the **Userscripts** app (App Store, free).
+2. Open **Settings → Safari → Extensions → Userscripts**: turn it on and allow it on all websites.
+3. In **Safari**, paste the link from step 3 of the Android section into the address bar and open it.
+4. Tap the extensions icon (puzzle piece or **aA**) in the address bar → **Userscripts** → **Install**.
+5. Open the game in Safari: the panel appears in the top-left corner. iOS is untested; pokesurvivor.com may be blocked as on Android. If something goes wrong, use the contact below.
+
+## Buy an activation code
+
+The bot needs a valid **activation code** to run. The panel, Moveset, Level-up and Item still open without one.
+
+| Plan | Price (VND) |
+|---|---|
+| 10 days | 30k |
+| 30 days | 70k |
+| 90 days | 180k |
+| Lifetime | 500k |
+
+Lifetime plan: 1 machine, works for as long as the tool does.
+
+⚠ Plans last while the game does not block the tool. If it does, I will try everything to get the tool running again; if nothing works, there is no refund.
+
+**Free 2-hour trial:** message [Zalo 0355011166](https://zalo.me/0355011166) your machine id (step 1 below). Needs bot 2.0.7 or later.
+
+1. Install the bot and open the game. The panel shows **🔒 An activation code is needed** and your **machine id** (like `ABCD-1234`): press **Copy**.
+2. Pay by bank transfer (the panel's **💳 Buy a code** tab has the QR code and account), with the machine id as the message.
+3. Message [Zalo 0355011166 (Đàm Xuân Hiếu)](https://zalo.me/0355011166) or [TikTok @phuongnguyenconhat](https://www.tiktok.com/@phuongnguyenconhat) the transfer screenshot + machine id.
+4. Paste the code you get (starts with `PSB1.`) into the panel → **Enter** → **▶ Run**.
+
+- Renewing before it runs out adds the new days after the current ones. Press **Renew** on the panel to enter the new code.
+- Each browser and each game site (pokesurvivor.com / doofcraft) has its own machine id. Playing both: send both ids, you get one code for both.
+- Clearing the browser's site data changes the machine id: message the author for a new code, no days lost.
+- If a game update breaks the bot, the author adds back the days it could not run.
+
+## Use
+
+The panel starts in Vietnamese: press **VI | EN** under its title (next to "by damhieu2808") to switch it to English (remembered in the browser). Enter **Runs** (0 = endless) and press **▶ Run**; press it again to **■ Stop**. **⚔ Moveset** picks the 4 moves the bot prefers for each pokémon, plus 2 backups (#5, #6: taken only when a main move hasn't shown up and slots are running out). The move list follows each game version, with the TM moves that pokémon can learn (pokesurvivor.com: Kecleon Shop; doofcraft: Poké Mart): "TM ✓" = already taught, "TM" = not yet (the game only offers taught TMs). PC shortcuts: **F8** toggles the bot, **F9** shows an overlay of what the bot sees.
+
+**Small screens** (phones, especially held sideways): the panel is more compact and starts collapsed to its title row, with a **▶ / ■** button to run / stop; **+** opens it. The Moveset popup sits beside the panel instead of below it.
+
+**Keep off the leaderboard** (pokesurvivor.com, on by default): runs the bot plays are not submitted to the leaderboard. Runs you play yourself (bot off) still are. Untick it on the panel to let the bot's runs count.
+
+**Auto skill** (on by default): the bot keeps switching skills (E key) to use every move. Untick it and the bot stops switching; you switch by hand.
+
+**Save after every run:** on pokesurvivor.com, after a run the bot goes back to the menu, presses **Guardar** (Save) and waits until the game says it is saved to the cloud before the next run (a minute at most). Doofcraft saves to its server when a run ends, so there is nothing to press.
+
+**Run settings** ([pokesurvivor.doofcraft.com](https://pokesurvivor.doofcraft.com/)): 3 boxes on the panel, as on the game's Solo screen.
+- **Mode**: Normal (play until you fall) / Waves (rounds in a row, a chest between rounds, a boss every 25 rounds).
+- **Difficulty**: Easy / Medium / Hard.
+- **HYPER:** Off / On (everything scales twice as fast, Eternatus at 30:00, ×1.5 coins, its own leaderboard; a max-upgraded pokémon is recommended). It goes with any mode and difficulty.
+
+Each box has **Game** = keep what the game has selected. Before each run the bot clicks the Solo screen's tabs to match, then Play. If a saved run of other settings is waiting, the bot neither continues nor ends it on its own: it stops, says so on the panel and offers two buttons: **▶ Continue the saved run** (the 3 boxes are set to match it, then it runs) or **✕ End the saved run** (press End run, losing that run, then run the settings you chose).
+
+**Steering** (doofcraft, from 2.0.7): **Kite** (default: dodges the whole crowd, keeps out of tight corners, leads the crowd round a circle, as the bot moves on pokesurvivor.com) or **Old** (the steering before 2.0.7).
+
+If your account is open in another tab / device (the game says "The game was opened in another tab or device"), the bot stops and says so on the panel instead of starting a new run (that would close the run being played there). Leave the game there, then press **↻ Reload the page**.
+
+> ⚠️ **Bot 1.5.0–1.5.6 moved pokesurvivor.com to `/dev.html`.** Since 26/10 that page of the game no longer uses your account (no cloud save, no ranking). From 1.5.7 the bot takes you back to the main page. If the address shows `pokesurvivor.com/dev.html`, update the bot and open `pokesurvivor.com` again.
+
+### How the bot picks level-up cards
+
+The order below is the default; **⬆ Level-up** on the panel shows it and lets you change it (↑ ↓ on each row, the reroll line too; saved in the browser, **Default** restores the default). Each game has its own list and order: doofcraft adds Mega / form change (Unique cards, right under evolutions), Z-moves, Revive, Focus / Sniper.
+
+On every level-up the bot scores each card and takes the best one. The reason for each pick is printed in the console (F12), e.g. `chọn 2 Psychic — lấy move build #2` ("take build move #2").
+
+The order of [pokesurvivor-autofarm](https://github.com/BoundlessEgret/pokesurvivor-autofarm) (MIT), on both versions. The **build** is the Moveset of the pokémon being played: the bot recognises it by the name on the HUD, or the partner in the save while at the menu. The popup follows the pokémon being played: once it's recognised, the popup only shows its name on the title row and the move slots. ✎ edits another pokémon's build (type its name); 🎯 goes back to following the one being played. That tool's builds come built in for 3 pokémon (Shell Bell recommended for all):
+- **Mewtwo:** Confusion → Harden → Nasty Plot → Psychic.
+- **Kyogre:** Bubble → Nasty Plot → Aqua Ring → Hydro Pump.
+- **Bulbasaur:** Energy Ball → Nasty Plot → Petal Blizzard → Grass Knot (buy Energy Ball as its "Starting move" in the shop).
+
+Any other pokémon without a Moveset gets a **3-move default build**: its starting move (★) → the attack buff for its side (Nasty Plot if Sp. Atk is higher, Swords Dance / Dragon Dance if Attack is) → Harden. The 4th slot is yours to set; until you save a build, the bot fills it during the run (a damage move that suits its stats, homing shots first). The Moveset popup shows this default build; edit it and press **Lưu** (Save) and the bot follows yours.
+
+Move lists in the popup: on pokesurvivor.com they come **from the game** (the starting move you bought, TMs taught / not yet, names in the game's language) when the bot reads the game, else the copy saved the last time it did (or the bundled table, also exported from the game); doofcraft reads its game config. No wiki. The attack side comes from the game's stats, else from the starting move.
+
+A higher tier always wins:
+
+1. A card that **evolves** a skill.
+2. A passive that **evolves a maxed move at once** (gold card; pokesurvivor.com).
+3. **Sitrus Berry** (heals 45% HP) **under 35% HP**. At good HP it's near the bottom (after 8).
+4. **A build move** not taken yet (#1 before #2…). Backups #5, #6 come after, taken only into a slot the main moves can spare or the last free one (so a main move that never shows up doesn't leave it empty). Without a build: a new move while a slot is free, in the order above.
+5. **A passive an owned move needs to evolve** (e.g. Magnet for Psychic), not taken yet. Above every move upgrade.
+6. **Upgrade a build move** (#1 before #2…), buffs as much as attacks: the Moveset's moves are maxed before any other.
+7. **Upgrade a move outside the build that can still evolve**: the nearer its max, the sooner. Only with the default build (no Moveset saved); once you save a Moveset these cards go right under 8, so the bot doesn't level the starting move or an extra move instead of passives.
+8. **Passives**: **Armor** first until capped (pokesurvivor.com: -6% damage taken per card, up to 70%; doofcraft: 20 cards, ~67%). Then Power > Reflexes > (Focus / Sniper, doofcraft) > Vigor > Synthesis > Learning > Magnet > Sprint.
+9. **Upgrade a move outside the build that can't evolve**.
+10. **A new move outside the build** while a slot is to spare (slots for the build moves not taken yet are always kept).
+11. A new skill with no slot left: only when nothing else is offered.
+
+**Z-move** (pokesurvivor.doofcraft.com, cards like "Firium Z", "Psychium Z" with a Z-Move tag, from minute 15, round 10 in Waves, 7:30 in Hyper): ranked between 5 and 6. Once it has one, the bot presses **F** with 8 or more enemies within the burst (400), or 3 or more at low HP; it then recharges for 120 seconds.
+
+If no card is of kind 1–7 and a **Reroll** is left, the bot rerolls (PC; on pokesurvivor.com phones too).
+
+Move slots: pokesurvivor.com reads them from the game (usually 4, can be upgraded), pokesurvivor.doofcraft.com counts 4. **Bonded** moves share one slot, so after a bond the bot takes more new moves. The game only offers a new move while a slot is free, so such a card tells the bot there is room.
+
+**Held items** (both versions), ranked for survival by default: Shell Bell > Leftovers > Quick Claw > Focus Sash > Assault Vest > (doofcraft: Wise Glasses > Scope Lens > Muscle Band) > Rocky Helmet > Lucky Egg > Amulet Coin > Choice Scarf > Life Orb > Choice Band (dropped for anything else). **🎒 Item** on the panel changes it (↑ ↓, the drop line too; each game its own list and order). Doofcraft's Mega stones aren't held items: Mega Evolution is the "Unique" level-up card (its own row in ⬆ Level-up).
+
+### How the bot plays on pokesurvivor.com
+
+The bot reads the game's real state instead of the screen. Its steering is based on [pokesurvivor-autofarm](https://github.com/BoundlessEgret/pokesurvivor-autofarm) (MIT):
+- **Dodging:** scores 16 directions, predicts where enemies will have caught up and when each telegraph lands (where the player is when it does). The lower the HP, the more common enemies are avoided; bosses, shots and telegraphs always are.
+- **Targets:** Gholdengo > rift > lost pokémon / Meowth > altar buff, healing spring (HP < 60%), big chest > pickups. Routes come from A* on the real terrain; a target that can't be reached before it's gone is skipped.
+- Stands where walls / trees don't block its shots. With a crowd around, it runs a big circle with the enemies trailing behind.
+- **Rift** and **Arceus** (minute 30): circles inside the arena, keeping the boss on the far side.
+- **Orbs** (4 slots, keys 5–8, up to 3 each): a crowd-control orb (Slumber / Slow / Blowback) under 50% HP or with 6 enemies around; Quick under 50% HP to get away; a buff orb while a boss is up. A full slot is spent in a fight (Luminous: any time) so new orbs can still be picked up.
+- **Bond** (moves sharing a slot): build moves first in build order, then the higher level.
+- **Auto skill off:** the bot keeps the move slot you chose; if the game switches it (e.g. after a Rift), the bot switches back.
+- When the game pauses itself on losing focus, the bot unpauses it (unless you paused with Esc / P).
+- **Pokémon suggestion** (on the menu / results screen): your 3 owned pokémon that play unattended best, and whether to switch from the current one. Scored with the game's damage formula: best unaimed move × the attack stat that move uses × same type (×1.2) × its own weather (Kyogre's rain: ×1.5 to Water) × toughness × speed × upgrades bought. The bot never switches by itself.
+
+Without the game's state (bookmarklet, doofcraft) the bot works as before, reading the screen.
+
+## Updates
+
+- **PC:** when the panel shows the yellow line "⬆ Có bản mới" (new version available), download the ZIP from step 1 again and unzip it over the old folder.
+- **Phone:** the userscript manager updates it from time to time (or tap **Check for updates**).
+
+Need help installing: contact [Zalo 0355011166](https://zalo.me/0355011166) or [TikTok @phuongnguyenconhat](https://www.tiktok.com/@phuongnguyenconhat) · [License](LICENSE)
