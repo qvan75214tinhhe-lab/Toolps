@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cài PokeSurvivor Bot</title>
+<meta name="description" content="Cài PokeSurvivor Bot (Chrome extension) — tác giả damhieu2808">
+<link rel="icon" href="https://raw.githubusercontent.com/damhieu2808/PokeSurvivorTool/main/icons/icon32.png">
+<style>
+  :root {
+    --bg: #f6f4ee; --card: #fff; --ink: #1d232b; --muted: #5d6773; --line: #e2ddd2;
+    --accent: #e0a800; --accent-ink: #1d232b; --code: #f0ede4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11151b; --card: #1a2029; --ink: #e8ecf1; --muted: #9aa6b4; --line: #2b3440;
+      --accent: #ffcc33; --accent-ink: #11151b; --code: #0d1117;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #11151b; --card: #1a2029; --ink: #e8ecf1; --muted: #9aa6b4; --line: #2b3440;
+    --accent: #ffcc33; --accent-ink: #11151b; --code: #0d1117;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 600px; margin: 0 auto; padding: 24px 16px 48px; }
+  header { display: flex; gap: 14px; align-items: center; margin-bottom: 20px; }
+  header img { width: 56px; height: 56px; border-radius: 14px; }
+  header > div { flex: 1; min-width: 0; }
+  h1 { font-size: 24px; margin: 0; line-height: 1.2; }
+  .by { color: var(--muted); font-size: 14px; }
+  .by a { color: inherit; }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; align-self: flex-start; }
+  .lang button { font: 700 13px system-ui, sans-serif; padding: 6px 10px; border: 0; background: var(--card); color: var(--muted); cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+  [data-lang][hidden] { display: none; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+  .card h2 { font-size: 17px; margin: 0 0 8px; }
+  ol { padding-left: 22px; margin: 0; }
+  li { margin: 8px 0; }
+  code { font: 14px ui-monospace, Consolas, monospace; background: var(--code); border: 1px solid var(--line); border-radius: 6px; padding: 0 5px; }
+  .btn { display: block; text-align: center; font-weight: 700; font-size: 17px; padding: 14px; border-radius: 12px; background: var(--accent); color: var(--accent-ink); text-decoration: none; margin-bottom: 14px; }
+  .muted { color: var(--muted); margin: 0; }
+  .copy { display: flex; gap: 8px; align-items: stretch; margin-top: 6px; }
+  .copy code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 8px; }
+  .copy button { font: 700 15px system-ui, sans-serif; padding: 0 14px; border: 0; border-radius: 10px; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 28px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="https://raw.githubusercontent.com/damhieu2808/PokeSurvivorTool/main/icons/icon128.png" alt="">
+    <div>
+      <h1>PokeSurvivor Bot</h1>
+      <div class="by"><span data-lang="vi">30k / 10 ngày · 70k / 30 ngày · 180k / 90 ngày · 500k / vĩnh viễn · tác giả</span><span data-lang="en" hidden>30k / 10 days · 70k / 30 days · 180k / 90 days · 500k / lifetime · by</span> <a href="https://github.com/damhieu2808/PokeSurvivorTool">damhieu2808</a></div>
+    </div>
+    <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
+      <button type="button" data-set-lang="vi" aria-pressed="true">VI</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <!-- Tiếng Việt -->
+  <div data-lang="vi">
+    <a class="btn" href="https://github.com/damhieu2808/PokeSurvivorTool/archive/refs/heads/main.zip">Tải bot cho máy tính (ZIP)</a>
+
+    <div class="card">
+      <h2>Cài đặt (Chrome trên máy tính)</h2>
+      <ol>
+        <li>Giải nén file ZIP vừa tải.</li>
+        <li>Mở <code>chrome://extensions</code>, bật <b>Developer mode</b>.</li>
+        <li>Bấm <b>Load unpacked</b>, chọn thư mục vừa giải nén.</li>
+        <li>Mở <a href="https://pokesurvivor.com/">pokesurvivor.com</a> hoặc <a href="https://pokesurvivor.doofcraft.com/">pokesurvivor.doofcraft.com</a>, nhập số ván rồi bấm <b>▶ Chạy</b>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Cài đặt (điện thoại Android)</h2>
+      <p class="muted">ℹ️ Toàn bộ bot nằm sẵn trong file userscript. Trình quản lý userscript tự chạy code đó trong trang, nên việc pokesurvivor.com chặn script chèn vào trang (CSP) không còn ảnh hưởng. Khuyên dùng <b>Firefox</b>. Edge / Kiwi + Tampermonkey trên Android từng không chạy được với bản cũ; với cách mới thì chưa thử lại.</p>
+      <ol>
+        <li>Cài <b>Firefox</b> (CH Play).</li>
+        <li>Trong Firefox, cài tiện ích <b>Violentmonkey</b> hoặc <b>Tampermonkey</b> (menu ⋮ → Tiện ích).</li>
+        <li>Bấm <b>Copy</b>, dán vào <b>thanh địa chỉ</b> của trình duyệt đó rồi mở:
+          <div class="copy"><code>https://raw.githubusercontent.com/damhieu2808/PokeSurvivorTool/v2.2.1/psbot.user.js</code><button type="button" data-copy data-done="Đã copy" data-hold="Giữ để copy">Copy</button></div></li>
+        <li>Trình quản lý tự mở trang cài script → bấm <b>Install</b> (Cài đặt). Đã cài bản cũ thì cài đè lên.</li>
+        <li>Vào game: panel <b>PokeSurvivor Bot</b> hiện ở góc trên bên trái. Trình quản lý tự kiểm tra bản mới định kỳ; muốn cập nhật ngay thì bấm <b>Check for updates</b> trong trình quản lý.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Cài đặt (iPhone / iPad)</h2>
+      <ol>
+        <li>Cài app <b>Userscripts</b> (App Store, miễn phí).</li>
+        <li>Mở <b>Cài đặt → Safari → Tiện ích → Userscripts</b>: bật lên và cho phép trên mọi trang web.</li>
+        <li>Bấm <b>Copy</b> ở phần Android phía trên, dán vào thanh địa chỉ của <b>Safari</b> rồi mở.</li>
+        <li>Bấm biểu tượng tiện ích (hình mảnh ghép hoặc <b>aA</b>) trên thanh địa chỉ → <b>Userscripts</b> → <b>Cài đặt</b> (Install).</li>
+        <li>Vào game trong Safari: panel hiện ở góc trên bên trái. iOS chưa thử; pokesurvivor.com có thể bị chặn như trên Android. Nếu lỗi, báo qua liên hệ bên dưới.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Mua mã kích hoạt</h2>
+      <p><b>30k</b> / 10 ngày · <b>70k</b> / 30 ngày · <b>180k</b> / 90 ngày · <b>500k</b> / vĩnh viễn<br><small>Vĩnh viễn: 1 máy, dùng tới khi tool còn hoạt động.<br>⚠ Hạn dùng tính tới khi game chưa chặn tool. Nếu game chặn, mình sẽ tìm mọi cách cho tool chạy lại; thử hết cách vẫn không được thì không hoàn tiền.</small></p>
+      <p>🎁 <b>Dùng thử miễn phí 2 giờ</b>: nhắn Zalo <a href="https://zalo.me/0355011166">0355011166</a> mã máy trên panel.</p>
+      <ol>
+        <li>Cài bot, vào game: panel hiện <b>mã máy</b>, bấm <b>Copy</b>.</li>
+        <li>Chuyển khoản (tab <b>💳 Mua mã</b> trên panel có QR), nội dung ghi mã máy.</li>
+        <li>Nhắn Zalo <a href="https://zalo.me/0355011166">0355011166 (Đàm Xuân Hiếu)</a> hoặc TikTok <a href="https://www.tiktok.com/@phuongnguyenconhat">@phuongnguyenconhat</a> ảnh chuyển khoản + mã máy.</li>
+        <li>Dán mã nhận được (bắt đầu bằng <code>PSB1.</code>) vào panel → <b>Nhập</b> → <b>▶ Chạy</b>.</li>
+      </ol>
+      <p class="muted">Gia hạn sớm thì ngày mới được cộng nối tiếp. Mỗi trình duyệt và mỗi trang game có mã máy riêng.</p>
+    </div>
+
+    <div class="card">
+      <h2>Cần cài hộ?</h2>
+      <p class="muted">Liên hệ Zalo <a href="https://zalo.me/0355011166">0355011166</a> hoặc TikTok <a href="https://www.tiktok.com/@phuongnguyenconhat">@phuongnguyenconhat</a>.</p>
+    </div>
+  </div>
+
+  <!-- English -->
+  <div data-lang="en" hidden>
+    <a class="btn" href="https://github.com/damhieu2808/PokeSurvivorTool/archive/refs/heads/main.zip">Download the bot for PC (ZIP)</a>
+
+    <div class="card">
+      <h2>Install (Chrome on PC)</h2>
+      <ol>
+        <li>Unzip the downloaded file.</li>
+        <li>Open <code>chrome://extensions</code> and turn on <b>Developer mode</b>.</li>
+        <li>Click <b>Load unpacked</b> and pick the unzipped folder.</li>
+        <li>Open <a href="https://pokesurvivor.com/">pokesurvivor.com</a> or <a href="https://pokesurvivor.doofcraft.com/">pokesurvivor.doofcraft.com</a>, enter the number of runs and press <b>▶ Chạy</b> (Run).</li>
+      </ol>
+      <p class="muted">The bot's panel starts in Vietnamese: press <b>VI | EN</b> under its title to switch it to English. <b>▶ Run</b> / <b>■ Stop</b>, <b>Runs</b> = number of runs (0 = endless), <b>⚔ Moveset</b> = pick the 4 moves the bot prefers (+2 backups). Keys: <b>F8</b> toggles the bot, <b>F9</b> shows what it sees.</p>
+    </div>
+
+    <div class="card">
+      <h2>Install (Android phone)</h2>
+      <p class="muted">ℹ️ The whole bot is inside the userscript file. The userscript manager runs that code in the page itself, so pokesurvivor.com blocking scripts added to the page (CSP) no longer matters. <b>Firefox</b> is recommended. Edge / Kiwi + Tampermonkey on Android did not work with the old version; the new way is not tested there yet.</p>
+      <ol>
+        <li>Install <b>Firefox</b> (Play Store).</li>
+        <li>In Firefox, install the <b>Violentmonkey</b> or <b>Tampermonkey</b> add-on (menu ⋮ → Add-ons).</li>
+        <li>Tap <b>Copy</b>, paste into that browser's <b>address bar</b> and open it:
+          <div class="copy"><code>https://raw.githubusercontent.com/damhieu2808/PokeSurvivorTool/v2.2.1/psbot.user.js</code><button type="button" data-copy data-done="Copied" data-hold="Hold to copy">Copy</button></div></li>
+        <li>The manager opens its install page → tap <b>Install</b>. If an older version is installed, install over it.</li>
+        <li>Open the game: the <b>PokeSurvivor Bot</b> panel appears in the top-left corner. The manager checks for new versions on its own; to update right away, tap <b>Check for updates</b> in the manager.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Install (iPhone / iPad)</h2>
+      <ol>
+        <li>Install the <b>Userscripts</b> app (App Store, free).</li>
+        <li>Open <b>Settings → Safari → Extensions → Userscripts</b>: turn it on and allow it on all websites.</li>
+        <li>Tap <b>Copy</b> in the Android section above, paste into <b>Safari</b>'s address bar and open it.</li>
+        <li>Tap the extensions icon (puzzle piece or <b>aA</b>) in the address bar → <b>Userscripts</b> → <b>Install</b>.</li>
+        <li>Open the game in Safari: the panel appears in the top-left corner. iOS is untested; pokesurvivor.com may be blocked as on Android. If something goes wrong, use the contact below.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Buy an activation code</h2>
+      <p><b>30k</b> / 10 days · <b>70k</b> / 30 days · <b>180k</b> / 90 days · <b>500k</b> / lifetime (VND)<br><small>Lifetime: 1 machine, works for as long as the tool does.<br>⚠ Plans last while the game does not block the tool. If it does, I will try everything to get the tool running again; if nothing works, there is no refund.</small></p>
+      <p>🎁 <b>Free 2-hour trial</b>: message Zalo <a href="https://zalo.me/0355011166">0355011166</a> the machine id shown on the panel.</p>
+      <ol>
+        <li>Install the bot and open the game: the panel shows your <b>machine id</b>, press <b>Copy</b>.</li>
+        <li>Pay by bank transfer (the panel's <b>💳 Buy a code</b> tab has the QR code), with the machine id as the message.</li>
+        <li>Message Zalo <a href="https://zalo.me/0355011166">0355011166 (Đàm Xuân Hiếu)</a> or TikTok <a href="https://www.tiktok.com/@phuongnguyenconhat">@phuongnguyenconhat</a> the screenshot + machine id.</li>
+        <li>Paste the code you get (starts with <code>PSB1.</code>) into the panel → <b>Enter</b> → <b>▶ Run</b>.</li>
+      </ol>
+      <p class="muted">Renewing early adds the new days after the current ones. Each browser and each game site has its own machine id.</p>
+    </div>
+
+    <div class="card">
+      <h2>Need help installing?</h2>
+      <p class="muted">Contact Zalo <a href="https://zalo.me/0355011166">0355011166</a> or TikTok <a href="https://www.tiktok.com/@phuongnguyenconhat">@phuongnguyenconhat</a>.</p>
+    </div>
+  </div>
+
+  <footer>PokeSurvivor Bot © damhieu2808 · <a href="https://github.com/damhieu2808/PokeSurvivorTool">GitHub</a> · Bản quyền thuộc tác giả</footer>
+</main>
+<script>
+  // Vietnamese by default; ?lang=en or the last choice (kept in localStorage) switches
+  const TITLES = { vi: 'Cài PokeSurvivor Bot', en: 'Install PokeSurvivor Bot' };
+  const setLang = lang => {
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+    document.querySelectorAll('[data-lang]').forEach(el => { el.hidden = el.dataset.lang !== lang; });
+    document.querySelectorAll('[data-set-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.setLang === lang));
+  };
+  let saved = null;
+  try { saved = localStorage.getItem('psbot-lang'); } catch {}
+  const asked = new URLSearchParams(location.search).get('lang');
+  setLang(TITLES[asked] ? asked : TITLES[saved] ? saved : 'vi');
+  document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => {
+    setLang(b.dataset.setLang);
+    try { localStorage.setItem('psbot-lang', b.dataset.setLang); } catch {}
+  }));
+
+  // Copy the userscript link; falls back to selecting it when the clipboard API is unavailable (http, old browsers)
+  document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+    const code = btn.previousElementSibling;
+    try { await navigator.clipboard.writeText(code.textContent); btn.textContent = btn.dataset.done; }
+    catch { getSelection().selectAllChildren(code); btn.textContent = btn.dataset.hold; }
+    setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+  }));
+</script>
+</body>
+</html>
