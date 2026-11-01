@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         PokeSurvivor Bot
-// @namespace    https://github.com/damhieu2808/PokeSurvivorTool
+// @namespace    https://github.com/qvan75214tinhhe-lab/Toolps
 // @version      2.2.1
 // @description  Bot tự chơi pokesurvivor.com + pokesurvivor.doofcraft.com
 // @author       damhieu2808
-// @homepageURL  https://github.com/damhieu2808/PokeSurvivorTool
+// @homepageURL  https://github.com/qvan75214tinhhe-lab/Toolps
 // @license      Proprietary
 // @match        https://pokesurvivor.com/*
 // @match        https://www.pokesurvivor.com/*
